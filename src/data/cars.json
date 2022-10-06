@@ -73,13 +73,7 @@
     "id": 5,
     "color": "Pink",
     "model": "Volswagen",
-    "student": [
-      {
-        "id": 8,
-        "name": "Jill",
-        "grade": "Eight"
-      }
-    ]
+    "students": "Kimberly"
   },
   {
     "id": 6,
@@ -87,7 +81,7 @@
     "model": "Lamoborgini",
     "students": [
       {
-        "id": 9,
+        "id": 8,
         "name": "Cathy",
         "grade": "Eight"
       }
