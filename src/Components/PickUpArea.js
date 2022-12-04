@@ -1,25 +1,43 @@
 import React, { useState, useEffect } from "react";
-import Cars from "../data/cars.json";
+// import Cars from "../data/cars.json";
 
-// export default class PickUpArea extends Component {
-//   render() {
-//     console.log(Cars);
-//     return (
-//       <div className="PickUpArea">
-//         <p>PickupArea</p>
-//       </div>
-//     );
-//   }
-// }
+const cars_api = "/api";
 
 function PickUpArea() {
-  const [cars, setCars] = useState([Cars]);
-  let carModel = Cars.map(car => <>{car.model}</>);
+  const [cars, setCars] = useState([]);
+  const [fetching, setFetching] = useState(false);
+
+  useEffect(() => {
+    fetchCars();
+  }, []);
+
+  const fetchCars = () => {
+    fetch(cars_api)
+      .then(res => res.json())
+      .then(cars_fetch => setCars(cars_fetch));
+    setFetching(true);
+  };
+
+  let carModel =
+    cars &&
+    cars.map(car => (
+      <>
+        {car.model}-{car.name}_
+      </>
+    ));
+  //   debugger;
+
   console.log(cars);
+  // console.log(cars.users);
+  console.log(fetching);
+
+  //   if (!fetching) return <p>Loading</p>;
   return (
-    <div className="PickUpArea">
-      <p>PickupArea</p>
-      <p>{carModel}</p>
+    <div>
+      <div className="PickUpArea">
+        <p>PickupArea</p>
+        <p>{carModel}</p>
+      </div>
     </div>
   );
 }

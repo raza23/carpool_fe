@@ -1,5 +1,6 @@
 import School from "./Components/School";
 import PickupArea from "./Components/PickUpArea";
+import AddCar from "./Components/AddCarForm";
 import "./Styles/App.css";
 
 // * Create school ✔️
@@ -9,6 +10,7 @@ import "./Styles/App.css";
 function App() {
   return (
     <div className="App">
+      <AddCar />
       <PickupArea />
       <School />
     </div>
